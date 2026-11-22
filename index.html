@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catatan Pengeluaran — Remike Dev</title>
+<meta name="description" content="Aplikasi web sederhana untuk mencatat pemasukan dan pengeluaran harian. Data tersimpan di browser, tanpa server, tanpa akun.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header">
+  <h1>Catatan Pengeluaran</h1>
+  <p class="app-sub">catat duit masuk & keluar, datanya kesimpen di browser ini aja ↓</p>
+</header>
+
+<main>
+  <section class="summary" aria-label="Ringkasan keuangan">
+    <article class="card card-balance">
+      <h2>Saldo</h2>
+      <p class="amount" id="total-balance">Rp0</p>
+    </article>
+    <article class="card">
+      <h2>Pemasukan</h2>
+      <p class="amount amount-in" id="total-income">Rp0</p>
+    </article>
+    <article class="card">
+      <h2>Pengeluaran</h2>
+      <p class="amount amount-out" id="total-expense">Rp0</p>
+    </article>
+  </section>
+
+  <section class="panel">
+    <h2>Tambah Transaksi</h2>
+    <form id="tx-form">
+      <div class="field">
+        <label for="tx-name">Nama transaksi</label>
+        <input id="tx-name" name="name" type="text" placeholder="cth. Kopi, Gaji, Bensin" required maxlength="60" autocomplete="off">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="tx-amount">Jumlah (Rp)</label>
+          <input id="tx-amount" name="amount" type="number" placeholder="25000" required min="1" step="any" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="tx-date">Tanggal</label>
+          <input id="tx-date" name="date" type="date" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="tx-type">Jenis</label>
+          <select id="tx-type" name="type">
+            <option value="expense">Pengeluaran</option>
+            <option value="income">Pemasukan</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="tx-category">Kategori</label>
+          <select id="tx-category" name="category">
+            <option>Makanan</option>
+            <option>Transportasi</option>
+            <option>Belanja</option>
+            <option>Tagihan</option>
+            <option>Hiburan</option>
+            <option>Kesehatan</option>
+            <option>Pendapatan</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-add" type="submit">+ Tambah Transaksi</button>
+    </form>
+  </section>
+
+  <section class="panel">
+    <div class="list-head">
+      <h2>Riwayat Transaksi</h2>
+      <div class="field field-filter">
+        <label for="filter-category">Filter kategori</label>
+        <select id="filter-category">
+          <option value="all">Semua kategori</option>
+          <option>Makanan</option>
+          <option>Transportasi</option>
+          <option>Belanja</option>
+          <option>Tagihan</option>
+          <option>Hiburan</option>
+          <option>Kesehatan</option>
+          <option>Pendapatan</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+    </div>
+    <p class="empty" id="empty-state">Belum ada transaksi. Tambahkan transaksi pertama lewat formulir di atas.</p>
+    <ul class="tx-list" id="tx-list"></ul>
+  </section>
+
+  <section class="panel">
+    <h2>Pengeluaran per Kategori</h2>
+    <div id="category-summary" class="category-summary"></div>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <p>Dibuat oleh <a href="https://github.com/kirax-12" target="_blank" rel="noopener">Remike Dev</a> · HTML, CSS, dan JavaScript murni · Data hanya tersimpan di perangkat ini (localStorage)</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

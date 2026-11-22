@@ -1,0 +1,186 @@
+/* Catatan Pengeluaran — neo-brutalist cream style.
+   Design system saved in ~/workspace/custom-skills/remike-web-style/ */
+
+:root {
+  --bg: #fff8ec;
+  --ink: #111111;
+  --surface: #ffffff;
+  --yellow: #ffd23f;
+  --pink: #ff90e8;
+  --blue: #7ab8ff;
+  --green: #4ade80;
+  --red: #ff6b5e;
+  --muted: #55534e;
+  --border: 2px solid var(--ink);
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Space Grotesk", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+a { color: var(--ink); }
+:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.app-header, main, .app-footer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.app-header { padding-top: 46px; padding-bottom: 4px; }
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.app-sub {
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  color: var(--muted);
+  transform: rotate(-1deg);
+  display: inline-block;
+  margin: 0;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 28px 0 20px;
+}
+.card {
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+.card:nth-child(2) { background: var(--green); transform: rotate(0.7deg); }
+.card:nth-child(3) { background: var(--pink); transform: rotate(-0.7deg); }
+.card h2 {
+  margin: 0;
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.amount { margin: 6px 0 0; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; word-break: break-all; }
+.card-balance { background: var(--yellow); }
+
+.panel {
+  background: var(--surface);
+  border: var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 22px;
+}
+.panel h2 { margin: 0 0 16px; font-size: 1.3rem; letter-spacing: -0.01em; }
+
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+label { font-weight: 700; font-size: 0.92rem; }
+input, select {
+  background: var(--bg);
+  border: var(--border);
+  border-radius: 10px;
+  color: var(--ink);
+  padding: 11px 12px;
+  font: inherit;
+  min-height: 48px;
+  width: 100%;
+}
+
+.btn-add {
+  background: var(--green);
+  color: var(--ink);
+  border: var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 13px 20px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  min-height: 52px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.btn-add:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+
+.list-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.list-head h2 { margin: 0; }
+.field-filter { margin-bottom: 0; min-width: 200px; }
+
+.empty { color: var(--muted); margin: 10px 0 0; }
+.tx-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.tx-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 4px;
+  border-top: 2px dashed #c9c2b2;
+}
+.tx-main { flex: 1; min-width: 0; }
+.tx-name { font-weight: 700; display: block; overflow-wrap: anywhere; }
+.tx-meta { color: var(--muted); font-size: 0.86rem; font-family: "Space Mono", ui-monospace, monospace; }
+.tx-amount { font-weight: 700; white-space: nowrap; }
+.tx-amount.in { color: #128a4c; }
+.tx-amount.out { color: #d93a2b; }
+.btn-delete {
+  background: var(--surface);
+  border: var(--border);
+  color: var(--ink);
+  border-radius: 9px;
+  box-shadow: 3px 3px 0 var(--ink);
+  padding: 8px 13px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 40px;
+}
+.btn-delete:hover { background: var(--red); }
+
+.category-summary { display: grid; gap: 14px; }
+.cat-row { display: grid; gap: 5px; }
+.cat-line { display: flex; justify-content: space-between; gap: 12px; font-size: 0.95rem; font-weight: 600; }
+.cat-line span:last-child { font-family: "Space Mono", ui-monospace, monospace; }
+.cat-bar { background: var(--bg); border: var(--border); border-radius: 999px; height: 14px; overflow: hidden; }
+.cat-fill { background: var(--blue); height: 100%; min-width: 2px; }
+.cat-row:nth-child(2n) .cat-fill { background: var(--pink); }
+.cat-row:nth-child(3n) .cat-fill { background: var(--yellow); }
+.cat-empty { color: var(--muted); margin: 0; }
+
+.app-footer { padding-top: 4px; padding-bottom: 38px; color: var(--muted); font-size: 0.9rem; }
+.app-footer a { font-weight: 700; }
+
+@media (max-width: 640px) {
+  .summary { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .panel { padding: 19px; }
+  .amount { font-size: 1.35rem; }
+}
