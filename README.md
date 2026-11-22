@@ -1,5 +1,7 @@
 # Catatan Pengeluaran
 
+**Demo live:** [catatan-pengeluaran di GitHub Pages](https://kirax-12.github.io/catatan-pengeluaran/)
+
 Aplikasi web sederhana untuk mencatat pemasukan dan pengeluaran harian, dibuat oleh [Remike Dev](https://github.com/kirax-12).
 
 Tidak perlu server, akun, atau database — semua data tersimpan di browser pengguna (localStorage).
